@@ -11,8 +11,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use("/api/v1/products", productRouter);
 
-app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
+app.use(notFoundMiddleware);
 
 mongoConnect(process.env.MONGO_URL)
   .then(() => app.listen(PORT))
